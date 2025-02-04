@@ -7,10 +7,10 @@ export const AuthContextProvider = ({ children }) => {
     const [session, setSession] = useState(undefined);
 
     //Sign up
-    const signUpNewUser = async () => {
+    const signUpNewUser = async (email, password) => {
         const { data, error } = await supabase.auth.signUp({
             email: email,
-            password: password
+            password: password,
         });
 
         if(error) {
@@ -18,14 +18,14 @@ export const AuthContextProvider = ({ children }) => {
             return { success: false, error };
         }
         return { success: true, data };
-    }
+    };
 
     //Sign in
-    const signInUser = async ({ email, password }) => {
+    const signInUser = async (email, password) => {
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
                 email: email,
-                password: password
+                password: password,
             });
             if (error) {
                 console.error("sign in error occured :", error);

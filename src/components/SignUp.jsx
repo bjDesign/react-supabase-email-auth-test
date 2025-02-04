@@ -41,9 +41,9 @@ export const SignUp = () => {
             </p>
             <div className='flex flex-col py-4'>
                 <input onChange={(e) => setEmail(e.target.value)} placeholder='Email' className='p-3 mt-2 bg-black' type="email" />
-                <input onChange={(e) => setPassword(e.target.value)} placeholder='Password' className='p-3 mt-2 bg-black' type="password" />
+                <input onChange={(e) => setPasswordl(e.target.value)} placeholder='Password' className='p-3 mt-2 bg-black' type="password" />
                 <button type='submit' disabled={loading} className='mt-4 w-full'>Sign Up</button>
-                { error & <p className='text-red-600 text-center pt-4'>{error}</p>}
+                { error && <p className='text-red-600 text-center pt-4'>{error}</p>}
             </div>
         </form>
     </div>
