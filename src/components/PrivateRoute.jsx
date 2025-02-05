@@ -6,6 +6,7 @@ export const PrivateRoute = ( {children} ) => {
 
     const { session } = UserAuth();
 
+    //prevents any flickering
     if(session === undefined) {
         return <p>Loading...</p>;
     }
