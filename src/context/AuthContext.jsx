@@ -8,9 +8,10 @@ export const AuthContextProvider = ({ children }) => {
 
     //Sign up
     const signUpNewUser = async (email, password) => {
+        // console.log("email: "+email+" / password: "+password);
         const { data, error } = await supabase.auth.signUp({
             email: email,
-            password: password,
+            password: password
         });
 
         if(error) {
@@ -21,11 +22,11 @@ export const AuthContextProvider = ({ children }) => {
     };
 
     //Sign in
-    const signInUser = async (email, password) => {
+    const signInUser = async ({ email, password }) => {
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
                 email: email,
-                password: password,
+                password: password
             });
             if (error) {
                 console.error("sign in error occured :", error);
